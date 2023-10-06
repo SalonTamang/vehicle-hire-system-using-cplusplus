@@ -1,0 +1,6 @@
+van:Hyunda:HI:£20:12L:5 seats:2.3 cubic meters luggage space:RQ12IJK:White:Yes:N/A
+car:Vauxhall:Corsa:£35:1.0L:5 seats:3 door:MM71DPU:red:Yes:N/A
+car:Volkswagan:Evogue:£12:10L:7 seats:4 door:VOL12GAN:black:No:12/10/2023
+bike:Kawasaki:Ninja:£70:1043cc:Passenger seat:No luggage:LT72ACG:blue:Yes:N/A
+car:Ford:Fiesta:£45:1.0L:5 seats:5 door:GI68XDF:black:Yes:N/A
+car:Nisan:hynda:£20:29L:4 seats:4 door:RN12AB:red:yes:N/A

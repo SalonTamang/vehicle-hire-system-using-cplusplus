@@ -1,0 +1,122 @@
+
+#include "coursework1.h"
+#include <iostream>
+#include <fstream>
+#include <sstream>
+#include <string>
+#include <vector>
+#include <bits/stdc++.h>
+
+
+vector<vector<string>> vDetails;
+vector<string> iDetails;
+ 
+int vehicle::loadVehicle() {
+  string fileName;
+  cout <<  endl; 
+  cout << "Enter the name of the file: ";
+  cin >> fileName;
+  ifstream my_file(fileName);
+  if (!my_file.is_open()) {
+    cout << "Error opening file" << endl;
+    return 1;
+  }
+  string line;
+  string word;
+  while (getline(my_file, line)){
+    //reading each line from the file
+    istringstream iss(line); //convert line to string
+
+    //split line by ":" and push words into vector
+    while (getline(iss, word, ':')) {
+      iDetails.push_back(word);
+    }
+
+    vDetails.push_back(iDetails);
+    
+  }
+  cout << endl;
+  cout << "Vehicle from filename " << fileName << " has been successfully loaded!!" << endl;
+  my_file.close();
+  return 0;
+}
+
+void vehicle::addVehicle(){
+  
+  cout << "Enter vehicle type (bike/car/van) : ";
+  cin >> vehicleType;
+
+  transform(vehicleType.begin(), vehicleType.end(), vehicleType.begin(), ::tolower);
+  //checking if vehicleType is valid
+  if (vehicleType == "bike" || vehicleType == "car" || vehicleType == "van") {
+    if(vehicleType == "bike"){
+      bike b;
+      b.bike_input();
+    } else if(vehicleType == "car"){
+      car c;
+      c.car_input();
+    }else {
+      van v;
+      v.van_input();
+    }       
+  } else {
+    vehicle a;
+    a.addVehicle();
+  };
+}
+void vehicle::loadMenu() {
+  cout << " " << endl;
+  cout << " ---------------------------------------- " << endl;
+  cout << "|                                        |" << endl;
+  cout << "|     Welcome to Vehicle Hire Company    |" << endl;
+  cout << "|                                        |" << endl;
+  cout << " ---------------------------------------- " << endl;
+  cout << " " << endl;
+  cout << "[1] Load vehicle" << endl;
+  cout << "[2] Add vehicle" << endl;
+  cout << "[3] Save vehicle" << endl;
+  cout << "[4] Remove vehicle" << endl;
+  cout << "[5] List Vehicle" << endl;
+  cout << "[6] Display vehicle" << endl;
+  cout << "[7] Exit" << endl;
+  cout << " " << endl;
+  cout << "Enter your choose : ";
+}
+
+ 
+void vehicle::saveVehicle() {
+  string rn;
+  cout << " " << endl;
+  cout << "Okay lets get the details of vehicle you want to save ;)" << endl;
+  cout << "Enter the registration number of a vehicle you want to save : ";
+  cin >> rn;
+
+  fstream file("saveVehicles.txt");
+  if(!file.is_open()){
+    cout << "Error opening file" << endl;
+  } else {
+    
+    for (int i = 0; i < vDetails.size(); i++){
+      if (rn == vDetails[i][7]){
+	file << vDetails[i][0] << ":" << vDetails[i][1] << ":" << vDetails[i][2] << ":" << vDetails[i][3] << ":" << vDetails[i][4] << ":" << vDetails[i][5] << ":" << vDetails[i][6] << ":" << vDetails[i][7] << ":" << vDetails[i][8] << ":" << vDetails[i][9] << ":" << vDetails[i][10];
+      }
+    }
+  }
+  file.close();
+}
+
+void vehicle::removeVehicle() {
+  cout << " " << endl;
+  cout << "Enter the registration number of the vehicle you want to remove : ";
+  cout << " " << endl;
+}
+void vehicle::listVehicle() {
+  cout << " " << endl;
+  cout << "Here is the list of vehicle from our file" << endl;
+  cout << " " << endl;
+}
+void vehicle::displayVehicleDetail(){
+  cout << " " << endl;
+  cout << "Displayig all the vehicle details.... In...3..2..1" << endl;
+  cout << " " << endl;
+}

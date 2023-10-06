@@ -1,0 +1,47 @@
+#include "coursework1.h"
+#include <iostream>
+
+int main() {
+  string message = "Input error!";
+  try {
+    vehicle m;
+    m.background("vehicles.dat");
+    m.loadMenu();
+    string userInput;
+    cin >> userInput;
+    while (userInput != "7") {
+      if(userInput == "1") {
+	m.loadVehicle();
+      } else if(userInput == "2") {
+	m.addVehicle();
+      } else if(userInput == "3") {
+	m.saveVehicle();
+      } else if(userInput == "4") {
+	m.removeVehicle();
+      } else if(userInput == "5") {
+	m.listVehicle();
+      } else if(userInput == "6"){
+	m.displayVehicleDetail();
+      } else if(userInput == "7") {
+	return 1;
+      } else {
+	cout << "Invalid input" << endl;
+      }
+      m.background("vehicles.dat");
+      m.loadMenu();
+      cin >> userInput;
+    }
+    cout << endl;
+    cout << "Shuting down the system..." << endl;
+    cout << "Closed successfully!" << endl;
+    cout << endl;
+    return 0;
+    throw (message);
+  }
+  catch(string message){
+    cout << endl;
+    cout << message;
+    vehicle m;
+    m.loadMenu();
+  }
+}

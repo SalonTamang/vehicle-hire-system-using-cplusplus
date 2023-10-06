@@ -1,0 +1,11 @@
+output: main.o coursework1.o
+	g++ main.o coursework1.o -o output
+
+main.o: main.cpp
+	g++ -c main.cpp
+
+coursework1.o: coursework1.cpp coursework1.h
+	g++ -c coursework1.cpp
+
+clean:
+	rm *.o output

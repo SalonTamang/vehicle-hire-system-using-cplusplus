@@ -1,0 +1,181 @@
+#ifndef COURSEWORK1_H
+#define COURSEWORK1_H
+#include <string>
+#include <iostream>
+#include <fstream>
+
+
+
+using namespace std;
+
+class vehicle {
+ public:
+  string vehicleType;
+  string vehicleMake;
+  string vehicleModel;
+  double vehiclePricePerDay;
+  int engineSize;
+  double luggageSpace;
+  int numberOfSeats;
+  string registrationNumber;
+  string color;
+  string availability;
+  string availableDate;
+
+  //functionality for the company
+  void loadMenu();
+  void vehicleAvaible();
+  int loadVehicle();
+  void addVehicle();
+  void saveVehicle();
+  void listVehicle();
+  void displayVehicleDetail();
+  void removeVehicle();
+  int background(string fname);
+};
+
+class bike: public vehicle {
+  private:
+    string passangerSeat;
+  public:
+  void bike_input() {
+    try{
+      string errorMessage = "Invalid user input";
+      cout << "Enter bike make : ";
+      cin >> vehicleMake;
+      cout << "Enter bike model : ";
+      cin >> vehicleModel;
+      cout << "Enter bike price per day : ";
+      cin >> vehiclePricePerDay;
+      cout << "Enter vehicle engine size in CC : ";
+      cin >> engineSize;
+      cout << "Has passanger seat (Yes/No) : ";
+      cin >> passangerSeat;
+      cout << "Enter bike luggage space : ";
+      cin >> luggageSpace;
+      cout << "Enter bike registration number : ";
+      cin >> registrationNumber;
+      cout << "Enter bike color : ";
+      cin >> color;
+      cout << "Enter bike availability (Yes/No) : ";
+      cin >> availability;
+      if (availability == "No"){
+	cout << "Enter bike available date : ";
+	cin >> availableDate;
+      } else {
+	availableDate = "N/A";
+      } 
+     	//adding these to the file
+	fstream file("vehicles.dat");
+
+	if(file.is_open()){
+	  file << "bike:" << vehicleMake << ":" << vehicleModel << ":£" << vehiclePricePerDay << ":" << engineSize << "CC:" << passangerSeat  << ":" << luggageSpace << " cubic meters luggage space:" << registrationNumber << ":" << color << ":" << availability << ":" << availableDate << endl; 
+	} else {
+	  throw(errorMessage);
+	}
+    }
+    catch(string message) {
+      cout << message << endl;
+    }
+  }  
+};
+
+class car: public vehicle {
+private:
+  string numberOfDoors;
+public:
+  void car_input() {
+    try {
+      
+      string errorMessage = "Invalid user input";
+      cout << "Enter car make : ";
+      cin >> vehicleMake;
+      cout << "Enter car model : ";
+      cin >> vehicleModel;
+      cout << "Enter car price per day : ";
+      cin >> vehiclePricePerDay;
+      cout << "Enter car engine size in litres : ";
+      cin >> engineSize;
+      cout << "Enter car number of seats : ";
+      cin >> numberOfSeats;
+      cout << "Enter car number of doors : ";
+      cin >> numberOfDoors;
+      cout << "Enter car registration number : ";
+      cin >> registrationNumber;
+      cout << "Enter car color : ";
+      cin >> color;
+      cout << "Enter car availability (Yes/No) : ";
+      cin >> availability;
+     
+      if (availability == "No"){
+	cout << "Enter car available date : ";
+	cin >> availableDate;
+      } else {
+	availableDate = "N/A";
+      }
+     	//adding these to the file
+	fstream file("vehicles.dat");
+
+	if(file.is_open()){
+	  file << "car:" << vehicleMake << ":" << vehicleModel << ":£" << vehiclePricePerDay << ":" << engineSize << "L:" << numberOfSeats << " seats:" << numberOfDoors << " door:" << registrationNumber << ":" << color << ":" << availability << ":" << availableDate << endl; 
+	} else {
+	  throw(errorMessage);
+	}
+    }
+    catch(string message){
+      cout << message << endl;
+    }
+  }
+    
+};
+
+  class van: public vehicle {
+  public:
+    void van_input(){
+      try {
+	string errorMessage = "Invalid user input";
+	cout << "Enter van make : ";
+	cin >> vehicleMake;
+	cout << "Enter van model : ";
+	cin >> vehicleModel;
+	cout << "Enter van price per day : ";
+	cin >> vehiclePricePerDay;
+	cout << "Enter van engine size in litres : ";
+	cin >> engineSize;
+	cout << "Enter van number of seats : ";
+	cin >> numberOfSeats;
+	cout << "Enter van luggage space : ";
+	cin >> luggageSpace;
+	cout << "Enter van registration number : ";
+	cin >> registrationNumber;
+	cout << "Enter van color : ";
+	cin >> color;
+	cout << "Enter van availability (Yes/No) : ";
+	cin >> availability;
+	
+	if (availability == "No"){
+	  cout << "Enter van available date : ";
+	  cin >> availableDate;
+	} else {
+	  availableDate = "N/A";
+	}
+
+	//adding these to the file
+	fstream file("vehicles.dat");
+
+	if(file.is_open()){
+	  file << "van:" << vehicleMake << ":" << vehicleModel << ":£" << vehiclePricePerDay << ":" << engineSize << "L:" << numberOfSeats << " seats:" << luggageSpace << " cubic meters luggage space:" << registrationNumber << ":" << color << ":" << availability << ":" << availableDate << endl; 
+	} else {
+	  throw(errorMessage);
+	}
+      }
+      catch(string message){
+	cout << endl;
+	cout << message << endl;
+      }
+    }
+    
+  };
+    
+
+#endif //COURSEWORK1_H
