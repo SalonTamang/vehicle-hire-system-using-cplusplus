@@ -1,2 +1,2 @@
 # mdx-soft_cw1
-coursework first of software development
+first coursework of software development
