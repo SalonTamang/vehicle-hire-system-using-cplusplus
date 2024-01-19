@@ -1,7 +1,7 @@
 # 🚗 Vehicle Hiring System Using C++
 This project was the first coursework of our **`Software engineering management and development`** module. Here, the system prompts users to choose from [1-5]. The system asks user to enter file name **`vehicles.dat`** to read vehicles info. One can add, remove, delete, list and load vehicle depending upon the option choosen.
 
-<img alt='Main menu of project' height="150" src='https://github.com/SalonTamang/vehicle-hire-system-using-cplusplus/blob/main/soft1.PNG?raw=true'>
+<img alt='Main menu of project' height="500" src='https://github.com/SalonTamang/vehicle-hire-system-using-cplusplus/blob/main/soft1.PNG?raw=true'>
 
 
 # 📚 Learning from this project
