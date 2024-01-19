@@ -12,4 +12,19 @@ This project introduced me to comprehensive C++ programming. During this project
 
 **`GNU Emacs`**
 
+# 👣 Way to implement it in your computer
+### Clone the repository
+```groovy
+git clone https://github.com/SalonTamang/vehicle-hire-system-using-cplusplus.git
+```
+### Go the vehicle-hire-system-using-cplusplus folder
+```groovy
+cd vehicle-hire-system-using-cplusplus
+```
+### Run the output.exe file
+```groovy
+./output.exe
+```
+
+
 
